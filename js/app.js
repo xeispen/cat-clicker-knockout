@@ -1,39 +1,90 @@
+// JSON Array
+initialCats = [
+{
+		clickCount: 0,
+		name: 'Lebron James',
+		imgSrc: 'img/Lebron James.jpg',
+		imgAttribution: 'reddit.com',
+		this.nickNames: 
+			[{name: 'Lebron'},
+			{name: 'Baby'}]
+},
+{
+		clickCount: 0,
+		name: 'Chris Paul',
+		imgSrc: 'img/Chris Paul.jpg',
+		imgAttribution: 'reddit.com',
+		this.nickNames: 
+			[{name: 'Point God'},
+			{name: 'CP3'}]
+},
+{
+		clickCount: 0,
+		name: 'Stephen Curry',
+		imgSrc: 'img/Stephen Curry.jpg',
+		imgAttribution: 'reddit.com',
+		this.nickNames: 
+			[{name: 'Threesus'},
+			{name: 'Baby Faced Assassin'}]
+},
+{
+		clickCount: 0,
+		name: 'Demar Derozan',
+		imgSrc: 'img/Demar Derozan.jpg',
+		imgAttribution: 'reddit.com',
+		this.nickNames: 
+			[{name: 'Midrange King'},
+			{name: 'DD'}]
+},
+{
+		clickCount: 0,
+		name: 'Joel Embiid',
+		imgSrc: 'img/Joel Embiid.jpg',
+		imgAttribution: 'reddit.com',
+		this.nickNames: 
+			[{name: 'The Process'},
+			{name: 'JOJO'}]
+}
+]
 // Model is defined within the view model
 // Functionality is seperate
 
 // KO handles view to model and model to view
 
-var Cat = function() {
-	this.clickCount = ko.observable(0);
-	this.name = ko.observable('Tabby');
-	this.imgSrc = ko.observable('img/434164568_fea0ad4013_z.jpg');
-	this.imgAttribution = ko.observable('reddit.com');
-	this.nickNames = ko.observableArray([
-		{name: 'Lebron'},
-		{name: 'Chris'},
-		{name: 'Deandre'},
-		{name: 'Jimmy'}
-		]);
+// Pass object literal called data into cat constructor function
+var Cat = function(data) {
+	this.clickCount = ko.observable(data.clickCount);
+	this.name = ko.observable(data.name);
+	this.imgSrc = ko.observable(data.imgSrc);
+	this.imgAttribution = ko.observable(data.imgAttribution);
+	this.nickNames = ko.observableArray(data.nickNames);
 
 	// Computed observable
 	this.level = ko.computed(function() {
 		if (this.clickCount() < 10) {
-			return 'Kitten'
+			return 'Rookie'
 		} else if (this.clickCount() < 20) {
-			return 'Teen'
+			return 'Starter'
 		} else {
-			return 'Cat'
+			return 'MVP'
 		};
 	},this);
 }
 
 var ViewModel = function() {
-	// Stores current cat in a KO observable
-	// this. represents ViewModel
-	this.currentCat = ko.observable(new Cat());
+	// self always maps to this ViewModel
+	var self = this;
+
+	this.catList = ko.observableArray([]);
+
+	initialCats.forEach(function(catItem){
+		self.catList.push(new Cat(catItem));
+	});
+	// this. represents binding context of currentCat
+	this.currentCat = ko.observable(this.catList()[0]);
 
 	this.incrementCounter = function() {
-		this.currentCat().clickCount(this.currentCat().clickCount() + 1);
+		this.clickCount(this.clickCount() + 1);
 	};
 };
 
