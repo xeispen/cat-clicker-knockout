@@ -5,7 +5,7 @@ initialCats = [
 		name: 'Lebron James',
 		imgSrc: 'img/Lebron James.jpg',
 		imgAttribution: 'reddit.com',
-		this.nickNames: 
+		nickNames: 
 			[{name: 'Lebron'},
 			{name: 'Baby'}]
 },
@@ -14,7 +14,7 @@ initialCats = [
 		name: 'Chris Paul',
 		imgSrc: 'img/Chris Paul.jpg',
 		imgAttribution: 'reddit.com',
-		this.nickNames: 
+		nickNames: 
 			[{name: 'Point God'},
 			{name: 'CP3'}]
 },
@@ -23,7 +23,7 @@ initialCats = [
 		name: 'Stephen Curry',
 		imgSrc: 'img/Stephen Curry.jpg',
 		imgAttribution: 'reddit.com',
-		this.nickNames: 
+		nickNames: 
 			[{name: 'Threesus'},
 			{name: 'Baby Faced Assassin'}]
 },
@@ -32,7 +32,7 @@ initialCats = [
 		name: 'Demar Derozan',
 		imgSrc: 'img/Demar Derozan.jpg',
 		imgAttribution: 'reddit.com',
-		this.nickNames: 
+		nickNames: 
 			[{name: 'Midrange King'},
 			{name: 'DD'}]
 },
@@ -41,7 +41,7 @@ initialCats = [
 		name: 'Joel Embiid',
 		imgSrc: 'img/Joel Embiid.jpg',
 		imgAttribution: 'reddit.com',
-		this.nickNames: 
+		nickNames: 
 			[{name: 'The Process'},
 			{name: 'JOJO'}]
 }
