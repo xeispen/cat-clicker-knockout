@@ -80,8 +80,12 @@ var ViewModel = function() {
 	initialCats.forEach(function(catItem){
 		self.catList.push(new Cat(catItem));
 	});
-	// this. represents binding context of currentCat
+
 	this.currentCat = ko.observable(this.catList()[0]);
+	
+	this.changeCat = function(index) {
+		self.currentCat(self.catList()[index()])
+	};
 
 	this.incrementCounter = function() {
 		this.clickCount(this.clickCount() + 1);
