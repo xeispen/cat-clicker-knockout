@@ -83,8 +83,8 @@ var ViewModel = function() {
 
 	this.currentCat = ko.observable(this.catList()[0]);
 	
-	this.changeCat = function(index) {
-		self.currentCat(self.catList()[index()])
+	this.changeCat = function(clickedCat) {
+		self.currentCat(clickedCat)
 	};
 
 	this.incrementCounter = function() {
